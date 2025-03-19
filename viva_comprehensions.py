@@ -22,11 +22,11 @@ def gen_list(start: int, stop: int, parity: Parity) -> List[int]:
     """
     pass
 
-    if parity == 1:
-        list_result = [int(value) for value in range(start, stop) if (value % 2 == 0)]
-        return list_result
-    if parity == 0:
+    if parity == Parity.ODD:
         list_result = [int(value) for value in range(start, stop) if (value % 2 == 1)]
+        return list_result
+    if parity == Parity.EVEN:
+        list_result = [int(value) for value in range(start, stop) if (value % 2 == 0)]
         return list_result
 
 
