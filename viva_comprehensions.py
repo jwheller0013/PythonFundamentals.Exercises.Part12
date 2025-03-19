@@ -13,12 +13,21 @@ def gen_list(start: int, stop: int, parity: Parity) -> List[int]:
     what this method was supposed to do. Hey if you do, maybe you could do some good in this world by
     updating this here docstring to something useful.
 
+    method is checking for parity (odd or even) between a set of int (start to stop)
+
     :param start:
     :param stop:
     :param parity:
     :return:
     """
     pass
+
+    if parity == 1:
+        list_result = [int(value) for value in range(start, stop) if (value % 2 == 0)]
+        return list_result
+    if parity == 0:
+        list_result = [int(value) for value in range(start, stop) if (value % 2 == 1)]
+        return list_result
 
 
 def gen_dict(start: int, stop: int, strategy: Callable) -> Dict:
@@ -27,6 +36,7 @@ def gen_dict(start: int, stop: int, strategy: Callable) -> Dict:
     what this method was supposed to do. Hey if you do, maybe you could do some good in this world by
     updating this here docstring to something useful.
 
+    in range start to stop run strategy() on said number
 
     :param start:
     :param stop:
@@ -34,7 +44,8 @@ def gen_dict(start: int, stop: int, strategy: Callable) -> Dict:
     :return:
     """
     pass
-
+    gen = {i: strategy(i) for i in range(start, stop)}
+    return gen
 
 def gen_set(val_in: str) -> Set:
     """
@@ -42,7 +53,12 @@ def gen_set(val_in: str) -> Set:
     what this method was supposed to do. Hey if you do, maybe you could do some good in this world by
     updating this here docstring to something useful.
 
+    only take lowercase letters from word making a set
+
     :param val_in:
     :return:
     """
     pass
+
+    gen = {val_in.upper() for val_in in val_in if val_in.islower()}
+    return gen
